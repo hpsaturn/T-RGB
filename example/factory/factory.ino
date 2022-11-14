@@ -416,10 +416,9 @@ void wifi_task(void *param) {
   uint32_t last_m = millis();
   str = "connecting to wifi\r\n";
   str += "SSID : " WIFI_SSID "\r\n";
-  str += "PASSWORD : " WIFI_PASSWORD "\r\n";
   lv_msg_send(MSG_WIFI_UPDATE, str.c_str());
 
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
     vTaskDelay(100);
